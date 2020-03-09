@@ -1,37 +1,27 @@
-import React, {useState} from 'react';
-import Hello from './sayHello';
-import Tweet from './Tweet';
+import React, { useState } from 'react';
+import Hello from './components/sayHello';
+import Count from './components/Count';
+import Tweet from './components/Tweet';
+import './App.css';
 
 function App() {
 
-  const [isRed, setRed] = useState(false);
-  const [count, setCount] = useState(0);
-
-  const Increment = () => {
-    setCount(count + 1);
-    setRed(!isRed);
-  };
-
-  const [users, setUsers] = useState([
-
-    { name: "ed", message: "hello"},
-    { name: "john", message: "hi" },
-    { name: "marry", message: "how are you" }
+  const [ users ] = useState([
+    { id: 1, name: "ed", message: "hello"},
+    { id: 2, name: "john", message: "hi" },
+    { id: 3, name: "marry", message: "how are you" }
   ]);
 
   return (
-    <div className='app'>
-
+    <div>
       <Hello />
-
-      {users.map(user => (
-        <Tweet name={user.name} message={user.message}/>
-      ))}
+      <Count />
       
-      <button onClick={Increment}>Increment</button>
-      <h1>{count}</h1>
-
-      <h1 className={isRed ? 'red' : ''}>Change my color!</h1>
+      <div className='app'>
+        {users.map(user => (
+          <Tweet key={user.id} name={user.name} message={user.message}/>
+        ))}
+      </div>
     </div>
   );
 }
