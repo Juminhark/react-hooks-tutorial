@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 export default function Count() {
 
-  const [isRed, setRed] = useState(false);
   const [count, setCount] = useState(0);
+  const [isRed, setRed] = useState(false);
 
   const Increment = () => {
     setCount(count + 1);
