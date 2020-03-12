@@ -9,6 +9,7 @@ export default function UseInput(defaultValue) {
     } = e;
     setValue(value);
   }
+  
   return (
     { value, onChange }
   )

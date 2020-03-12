@@ -5,7 +5,7 @@ import Count from './components/Count';
 import WithClass from './components/WithClass';
 import WithHook from './components/WithHook';
 import CleanupHook from './components/CleanupHook'
-
+import CleanupClass from './components/CleanupClass'
 import UseInput from './components/UseInput';
 import useFetch from './components/useFetch';
 import User from './components/User';
@@ -39,11 +39,13 @@ function App() {
       <div className='Example_place'>
       <CleanupHook />
       </div>
-       
+      <div className='Example_place'>
+      <CleanupClass />
+      </div>       
       <input {...name} placeholder="what is your name" />
       <hr/>
 
-      <h1>Use Fetch</h1>
+      <h1>data Fetch</h1>
       {isLoading && <h3>loading</h3>}
       {!isLoading && isError && <h3>{isError}</h3>}
       {!isLoading && users && 
@@ -59,6 +61,21 @@ function App() {
           ))}
         </div>
       }
+      <hr/>
+
+      <h1>기본 hook</h1>
+      <h3>useState</h3>
+      <h3>useEffect</h3>
+      <h3>useContext</h3>
+
+      <h1>추가 Hooks</h1>
+      <h3>useReducer</h3>
+      <h3>useCallback</h3>
+      <h3>useMemo</h3>
+      <h3>useRef</h3>
+      <h3>useImperativeHandle</h3>
+      <h3>useLayoutEffect</h3>
+      <h3>useDebugValue</h3>
 
 
     </div>
@@ -70,9 +87,6 @@ export default App;
 
 // {...name} => const name에 값이 할당되고 UseInput('입력된값') => UseInput은 value , onChanege를 반환 
 // value={name.value} onChange={name.onChange} 
-
-
-
 
 /* 
 side effects :
