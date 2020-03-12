@@ -1,23 +1,16 @@
-.app{
-  min-height: 100vh;
-  background: rgb(65, 129, 150);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.tweet {
-  height: 300px;
-  width: 300px;
-  background: white;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
+* {
+  margin: 10px;
+ }
 
 .red{
   color: red;
-  font-size: 30px;
+}
+
+.span-dispaly {
+  display: inline-block;
+}
+
+.Example_place {
+  width: 400px;
+  height: 150px;
 }
