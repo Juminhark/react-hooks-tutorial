@@ -1,5 +1,7 @@
 # react-hooks-tutorial
 
+https://www.youtube.com/watch?v=dGcsHMXbSOA
+
 ## [react 공식 doc](https://ko.reactjs.org/docs/hooks-intro.html) 
 
 react 16.8.0 부터 hook 지원.
