@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import Count from './components/Count';
+import Count from './components/useStateExample';
 import WithClass from './components/WithClass';
 import WithHook from './components/WithHook';
 import CleanupHook from './components/CleanupHook'
@@ -15,15 +15,11 @@ function App() {
   const { users, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/users');
   return (
     <div>
-      <p><a href='https://ko.reactjs.org/docs/hooks-state.html'>reactjs-hooks 공식 doc</a></p>
-      <p><a href='https://gist.github.com/velopert/a94290c448162b99ad374631e376963c'>velopert/hooks.old</a></p>
-      <p><a href='https://rinae.dev/posts/a-complete-guide-to-useeffect-ko'>rinae.dev/useEffect 가이드</a></p>
-      <p><a href='https://www.robinwieruch.de/react-hooks-fetch-data'>react-hooks-fetch-data</a></p>
-      <p><a href='https://velog.io/@velopert/react-hooks'>velog.io/react-hooks</a></p>      
-      <hr />
-    
-      <h1>state hook</h1>
-      <Count />
+      <h1>기본 hook</h1>
+        <h3>useState</h3>
+        <useStateExample />
+        <h3>useEffect</h3>
+        <h3>useContext</h3>
       <hr/>
 
       <h1>Effect Hook</h1>
@@ -63,11 +59,6 @@ function App() {
       }
       <hr/>
 
-      <h1>기본 hook</h1>
-      <h3>useState</h3>
-      <h3>useEffect</h3>
-      <h3>useContext</h3>
-
       <h1>추가 Hooks</h1>
       <h3>useReducer</h3>
       <h3>useCallback</h3>
@@ -76,8 +67,6 @@ function App() {
       <h3>useImperativeHandle</h3>
       <h3>useLayoutEffect</h3>
       <h3>useDebugValue</h3>
-
-
     </div>
   );
 }
