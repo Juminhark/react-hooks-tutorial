@@ -16,12 +16,11 @@
 * Hook를 통해 `로직에 기반을 둔 작은 함수로 컴포넌트를 나눌 수 있다`(구독 설정 및 데이터를 불러오는 것과 같은 로직)  - 조금 더 예측 가능하도록 하기 위해 리듀서를 활용해 컴포넌트의 지역 상태 값을 관리하도록 할 수 있다
 * `class없이 react기능들을 사용하는 방법을 알려준다` - 기존 class 사용에서 함수와 Class 컴포넌트들을 구별하고 각 요소를 언제 사용하는지는 숙련된 React 개발자 사이에서도 의견이 일치하지 않았고, class는 최근 사용되는 도구에도 많은 문제를 일으킨다.
 
-## Hook의 규칙
-[hooks-rule](https://ko.reactjs.org/docs/hooks-rules.html) ** 아직이해못함
-* `최상위(at the Top Level)에서만 Hook을 호출해야 한다`
+## [`Hook의 규칙`](https://ko.reactjs.org/docs/hooks-rules.html)
 
-* `React 함수 내에서 Hook을 호출`
-
+Hook은 그냥 JavaScript 함수이지만, 두 가지 규칙을 준수해야 한다 
+* 최상위(at the Top Level)에서만 Hook을 호출해야 한다 - 반복문, 조건문, 중첩된 함수 내에서 Hook을 실행하지 않는다
+* React 함수 컴포넌트 내에서만 Hook을 호출 - * custom hook 내에서도 가능
 
 ## reference
 * [`velog.io - react-hooks`](https://velog.io/@velopert/react-hooks)

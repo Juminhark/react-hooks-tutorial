@@ -7,7 +7,7 @@ export default function WithHook() {
   useEffect(() => {
     console.log('WithHook component / useEffect / count change')
     // 브라우저 api를 이용해 문서의 타이틀을 업데이트
-    document.title = `${count}`;
+    document.title = `${count} times`;
   },[count])
   // useEffect는 랜더링 이후에 매번 수행.
 

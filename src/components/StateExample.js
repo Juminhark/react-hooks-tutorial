@@ -18,7 +18,6 @@ export default function useStateExample() {
       <h3>state 갱신하기</h3>
       <button onClick={Increment}>Increment</button>
       <button onClick={() => setCount(count -1 )}>Decrement</button>
-
     </div>
   )
 }
