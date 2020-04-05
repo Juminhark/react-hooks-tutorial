@@ -142,3 +142,7 @@ return <button onClick={() => setCount(count + 1)}> + 1</button>
 * 틀린 사용: useContext(MyContext.Consumer)
 
 <hr/>
+
+## useReduser
+
+* useState의 대체함수

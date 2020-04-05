@@ -4,23 +4,23 @@ import './App.css';
 import StateExample from './components/StateExample';
 import EffectExample from './components/EffectExample';
 import EffectCleanup from './components/EffectCleanup';
-import  { UserContext, themes, ThemeContext } from './components/Context';
+import { UserContext, themes, ThemeContext } from './components/Context';
 import ContextExample from './components/ContextExample';
 import ThemedButton from './components/ThemedButton';
+import ReducerCounter from './components/ReducerCounter'
 
-
-// import WithClass from './components/WithClass';
-// import CleanupClass from './components/CleanupClass';
-// import UseInput from './components/UseInput';
-// import useFetch from './components/useFetch';
-// import User from './components/User';
+import WithClass from './components/WithClass';
+import CleanupClass from './components/CleanupClass';
+import UseInput from './components/UseInput';
+import useFetch from './components/useFetch';
+import User from './components/User';
 
 function App() {
   
   const [ value, setValue ] = useState('hello from context');
-
-  // const name = UseInput("");
-  // const { users, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/users');
+  const name = UseInput("");
+  const { users, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/users');
+  
   return (
     <div>
       <h1>기본 hook</h1>
@@ -41,13 +41,23 @@ function App() {
           <ThemedButton />
         </ThemeContext.Provider>
         <hr/>
+
+      <h1>추가 Hooks</h1>
+        <h3>useReducer</h3>
+        <ReducerCounter/>
+        <h3>useCallback</h3>
+        <h3>useMemo</h3>
+        <h3>useRef</h3>
+        <h3>useImperativeHandle</h3>
+        <h3>useLayoutEffect</h3>
+        <h3>useDebugValue</h3>
  
         
       <hr/>
 
       
       
-      {/* <h3>class의 clean-up</h3>
+      <h3>class의 clean-up</h3>
       <h5>clean-up을 이용하지 않은 Effects</h5>
       <p>네트워크 리퀘스트, DOM 수동 조작, 로깅 등은 정리(clean-up)가 필요 없는 경우</p>
       <WithClass/>
@@ -58,14 +68,10 @@ function App() {
       <p><a href='https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount'>hooks-useeffect-cleanup-for-only-componentwillunmount</a></p>
       <div className='Example_place'>
       <CleanupClass/>
-      </div> */}
+      </div>
             
-      {/* <input {...name} placeholder="what is your name" />
+      <input {...name} placeholder="what is your name" />
       <hr/>
-
-      
-
-      
 
       <h1>data Fetch</h1>
       {isLoading && <h3>loading</h3>}
@@ -85,14 +91,7 @@ function App() {
       }
       <hr/>
 
-      <h1>추가 Hooks</h1>
-      <h3>useReducer</h3>
-      <h3>useCallback</h3>
-      <h3>useMemo</h3>
-      <h3>useRef</h3>
-      <h3>useImperativeHandle</h3>
-      <h3>useLayoutEffect</h3>
-      <h3>useDebugValue</h3> */}
+
     </div>
   );
 }
