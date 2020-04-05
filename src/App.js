@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import StateExample from './components/StateExample';
-import WithClass from './components/WithClass';
-import WithHook from './components/WithHook';
-import CleanupHook from './components/CleanupHook'
-import CleanupClass from './components/CleanupClass'
-import UseInput from './components/UseInput';
-import useFetch from './components/useFetch';
-import User from './components/User';
+import EffectExample from './components/EffectExample';
+import EffectCleanup from './components/EffectCleanup';
+import  { UserContext, themes, ThemeContext } from './components/Context';
+import ContextExample from './components/ContextExample';
+import ThemedButton from './components/ThemedButton';
+
+
+// import WithClass from './components/WithClass';
+// import CleanupClass from './components/CleanupClass';
+// import UseInput from './components/UseInput';
+// import useFetch from './components/useFetch';
+// import User from './components/User';
 
 function App() {
-  const name = UseInput("");
-  const { users, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/users');
+  
+  const [ value, setValue ] = useState('hello from context');
+
+  // const name = UseInput("");
+  // const { users, isLoading, isError } = useFetch('https://jsonplaceholder.typicode.com/users');
   return (
     <div>
       <h1>기본 hook</h1>
@@ -21,30 +29,40 @@ function App() {
         <StateExample/>
         <hr/>
         <h3>useEffect</h3>
-          <h5>clean-up을 이용하지 않은 Effects</h5>
-          <p>네트워크 리퀘스트, DOM 수동 조작, 로깅 등은 정리(clean-up)가 필요 없는 경우</p>
-          <WithClass/>
-          <p>class 안의 같은코드를 두개의 생명주기 메서드에서 공유하는것을 줄일수 있다.</p>
-          <WithHook/>
-          <h5>clean-up을 이용하는 Effects</h5>
-          <p>class의 componentWillUnmount 처럼 Example component가 사라질때 cleanup() 실행.</p>
-          <p><a href='https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount'>hooks-useeffect-cleanup-for-only-componentwillunmount</a></p>
-          <div className='Example_place'>
-          <CleanupHook />
-          </div>
-          <div className='Example_place'>
-          <CleanupClass />
-          </div>       
-          <input {...name} placeholder="what is your name" />
-          <hr/>
-
+        <EffectExample/>
+        <div className='Example_place'>
+        <EffectCleanup/>
+        </div>
         <h3>useContext</h3>
+        <UserContext.Provider value={{ value, setValue }}>
+          <ContextExample />
+        </UserContext.Provider>
+        <ThemeContext.Provider value={themes.dark}>
+          <ThemedButton />
+        </ThemeContext.Provider>
+        <hr/>
+ 
+        
       <hr/>
 
       
       
+      {/* <h3>class의 clean-up</h3>
+      <h5>clean-up을 이용하지 않은 Effects</h5>
+      <p>네트워크 리퀘스트, DOM 수동 조작, 로깅 등은 정리(clean-up)가 필요 없는 경우</p>
+      <WithClass/>
+      <p>class 안의 같은코드를 두개의 생명주기 메서드에서 공유하는것을 줄일수 있다.</p>
       
-      
+      <h5>clean-up을 이용하는 Effects</h5>
+      <p>class의 componentWillUnmount 처럼 Example component가 사라질때 cleanup() 실행.</p>
+      <p><a href='https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount'>hooks-useeffect-cleanup-for-only-componentwillunmount</a></p>
+      <div className='Example_place'>
+      <CleanupClass/>
+      </div> */}
+            
+      {/* <input {...name} placeholder="what is your name" />
+      <hr/>
+
       
 
       
@@ -74,7 +92,7 @@ function App() {
       <h3>useRef</h3>
       <h3>useImperativeHandle</h3>
       <h3>useLayoutEffect</h3>
-      <h3>useDebugValue</h3>
+      <h3>useDebugValue</h3> */}
     </div>
   );
 }

@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 function ForHook() {
   const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
 
   useEffect(() => {
-    console.log('will update username');
-  },[username]);
+    console.log('will update name');
+  },[name]);
 
   useEffect(() => {
     return function cleanup () {
@@ -19,24 +18,12 @@ function ForHook() {
     setName(value);
   };
 
-  const handleUsername = e => {
-    const { value } = e.target;
-    setUsername(value);
-  };
-
   return (
     <div>
-      <div>
-        <input value={name} onChange={handleName} placeholder='name'/>
-        <input value={username} onChange={handleUsername} placeholder='username'/>
-      </div>
-      <div>
-        <div className='span-dispaly'>
-          <span> {name} </span> 
-        </div>
-        <div className='span-dispaly'>
-          <span > {username} </span>
-        </div>
+      <p>10초후에 사라집니다</p>
+      <input value={name} onChange={handleName} placeholder='name'/>
+      <div className='span-dispaly'>
+        <span> {name} </span> 
       </div>
     </div>
   )
@@ -48,12 +35,12 @@ export default function CleanupHook() {
   useEffect(() => {
     setTimeout(() => {
       setShouldRender(false);
-    }, 8000);
+    }, 10000);
   }, []);
 
   return (
     <div>
-      { shouldRender ? <ForHook /> : null }
+      { shouldRender ? <ForHook /> : <p>사라졌습니다 새로고침(f5)하세요</p> }
     </div>
   );
 }
@@ -63,6 +50,6 @@ export default function CleanupHook() {
   // useEffect( () => console.log('will update username'),[username]);
   // useEffect( () => console.log("will update any") );
 
-  // //cleanup
+  // cleanup
   // useEffect( () => () => console.log('will update username or unmount'),[username]);
   // useEffect( () => () => console.log('unmount'), [] );
