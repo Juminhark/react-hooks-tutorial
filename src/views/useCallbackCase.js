@@ -7,7 +7,7 @@ const List = ({ getItems }) => {
 
 	useEffect(() => {
 		setItems(getItems(5));
-		// console.log('getItems change');
+		console.log('getItems change');
 	}, [getItems]);
 
 	return items.map((item) => <div key={item}>{item}</div>);
